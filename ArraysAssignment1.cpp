@@ -1,10 +1,12 @@
-//add includes
-//add namespace declarations
+#include <iostream>
+#include <string>
+
+using namespace std;
+
 string lookupName(string targetName, string names[], string phoneNumbers[], int size);
 
 int main()
 {
-    using namespace std;
     string names[] = {"Michael Myers",
                       "Ash Williams",
                       "Jack Torrance",
@@ -29,10 +31,21 @@ int main()
                       << endl;
          cout << "Look up another name? (y/n)"
               << endl;
-      cin > c;
+      cin >> c;
       cin.ignore();
  } while (c == 'y');
  return 0;
 }
 
-//complete lookupName unction
+string lookupName(string targetName, string names[], string phoneNumbers[], int size){
+     int index = -1;
+     for (int i = 0; i < size; i++){
+          if (names[i] == targetName){
+               index = i;
+               break;
+          }
+     }
+     if (index == -1)
+          return "";
+     return phoneNumbers[index];
+}
